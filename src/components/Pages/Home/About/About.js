@@ -21,12 +21,18 @@ const About = () => {
           <hr className="ml-3 border-[1px] border-primary w-8 " />
         </div>
         <h3 className="text-[25px]  md:text-[35px] lg:text-[60px] font-bold">
-          Get Best CCTV <br />
-          Solutions For House
+          Get Best Bike <br />
+          Parts in cheap rate
         </h3>
         <p>
-          Bandwidth has historically been very unequally distributed
-          worldwide,with increasing concentration in the digital age.
+          BikeFina was founded in 2007 by a core team of riders whose sole goal
+          was to bring the best possible shopping experience to any enthusiast
+          who visits us, in-store or online. Over the next decade, we
+          continuously smashed records, raked in awards, and, most importantly,
+          helped keep hundreds of thousands of new and experienced riders safe
+          and sound. Now, as part of the best Family of Brands, BikeFina
+          continues its mission to serve the rider, fuel the industry, and
+          inspire the community.
         </p>
       </div>
     </div>

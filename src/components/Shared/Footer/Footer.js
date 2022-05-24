@@ -114,7 +114,7 @@ const Footer = () => {
         <div className="bg-primary py-3">
           <div className="container mx-auto flex justify-center items-center">
             <p className="text-white text-center px-5 md:px-0">
-              Copyright © 2022 Sectox by ThemePure. All Rights Reserved.
+              Copyright © 2022 BikeFina by TJ Rimon. All Rights Reserved.
             </p>
           </div>
         </div>
