@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Onion",
+    "email": "tjrimon@gmail.com",
+    "minimumOrder": 25,
+    "price": 1000,
+    "supplierName": "TJ Rimon",
+    "img": "https://i.ibb.co/nsTGTWd/onion.png",
+    "description": "Red Onion Imported From India, very high quality, new condition."
+  },
+  {
+    "id": 2,
+    "name": "Chili",
+    "email": "tjrimon@gmail.com",
+    "minimumOrder": 15,
+    "availableProducts": 30,
+    "price": 2000,
+    "supplierName": "TJ Rimon",
+    "img": "https://i.ibb.co/jkCvJpC/chili.png",
+    "description": "Red Onion Imported From India, very high quality, new condition."
+  },
+  {
+    "id": 3,
+    "name": "Cardamom",
+    "email": "tjrimon@gmail.com",
+    "minimumOrder": 20,
+    "availableProducts": 30,
+    "price": 3000,
+    "supplierName": "TJ Rimon",
+    "img": "https://i.ibb.co/567RZ3c/cardamom.png",
+    "description": "Red Onion Imported From India, very high quality, new condition."
+  },
+  {
+    "id": 4,
+    "name": "Garlic",
+    "email": "tjrimon@gmail.com",
+    "minimumOrder": 50,
+    "availableProducts": 30,
+    "price": 1200,
+    "supplierName": "TJ Rimon",
+    "img": "https://i.ibb.co/b13tPDm/garlic.png",
+    "description": "Red Onion Imported From India, very high quality, new condition."
+  },
+  {
+    "id": 5,
+    "name": "Pepper",
+    "email": "tjrimon@gmail.com",
+    "minimumOrder": 10,
+    "availableProducts": 30,
+    "price": 1800,
+    "supplierName": "TJ Rimon",
+    "img": "https://i.ibb.co/64NGFTB/pepper.png",
+    "description": "Red Onion Imported From India, very high quality, new condition."
+  },
+  {
+    "id": 6,
+    "name": "Saffron",
+    "email": "tjrimon@gmail.com",
+    "minimumOrder": 0.5,
+    "availableProducts": 30,
+    "price": 10000,
+    "supplierName": "TJ Rimon",
+    "img": "https://i.ibb.co/RDqQCQH/saffron.png",
+    "description": "Red Onion Imported From India, very high quality, new condition."
+  }
+]

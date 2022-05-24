@@ -6,7 +6,7 @@ import productImage2 from "../../../images/shop/product-2.png";
 import productImage3 from "../../../images/shop/product-3.png";
 import productImage4 from "../../../images/shop/product-4.png";
 
-const Shop = () => {
+const Ttems = () => {
   return (
     <div className="bg-[#F8F8F8] py-20">
       <div className="container mx-auto">
@@ -73,4 +73,4 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+export default Ttems;
