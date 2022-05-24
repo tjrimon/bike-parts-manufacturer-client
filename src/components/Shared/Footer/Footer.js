@@ -35,55 +35,55 @@ const Footer = () => {
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>About Us
+                <i className="fa-solid fa-arrow-right"></i>About Us
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Career
+                <i className="fa-solid fa-arrow-right"></i>Career
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Customer
+                <i className="fa-solid fa-arrow-right"></i>Customer
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Privacy
+                <i className="fa-solid fa-arrow-right"></i>Privacy
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Service
+                <i className="fa-solid fa-arrow-right"></i>Service
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Location
+                <i className="fa-solid fa-arrow-right"></i>Location
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Collections
+                <i className="fa-solid fa-arrow-right"></i>Collections
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Our Expert
+                <i className="fa-solid fa-arrow-right"></i>Our Expert
               </a>
               <a
                 className="text-gray-300 flex py-2 items-center gap-2 text-decoration-none"
                 href="#"
               >
-                <i class="fa-solid fa-arrow-right"></i>Best Seller
+                <i className="fa-solid fa-arrow-right"></i>Best Seller
               </a>
             </div>
           </div>
@@ -96,18 +96,18 @@ const Footer = () => {
               <input
                 type="text"
                 placeholder="Email address"
-                class="input w-full max-w-xs rounded-none bg-gray-700"
+                className="input w-full max-w-xs rounded-none bg-gray-700"
               />
               <button className="bg-primary p-4 text-white  flex flex-col justify-center items-center mr-[-2px]">
-                <i class="fa-regular fa-envelope-open"></i>
+                <i className="fa-regular fa-envelope-open"></i>
               </button>
             </form>
             <div className="text-secondary pt-2  text-lg flex items-center gap-5 ">
-              <i class="fa-brands fa-facebook text-gray-400 hover:text-white  cursor-pointer"></i>
-              <i class="fa-brands fa-twitter text-gray-400 hover:text-white  cursor-pointer"></i>
-              <i class="fa-brands fa-behance text-gray-400 hover:text-white  cursor-pointer"></i>
-              <i class="fa-brands fa-youtube text-gray-400 hover:text-white  cursor-pointer"></i>
-              <i class="fa-brands fa-linkedin text-gray-400 hover:text-white  cursor-pointer"></i>
+              <i className="fa-brands fa-facebook text-gray-400 hover:text-white  cursor-pointer"></i>
+              <i className="fa-brands fa-twitter text-gray-400 hover:text-white  cursor-pointer"></i>
+              <i className="fa-brands fa-behance text-gray-400 hover:text-white  cursor-pointer"></i>
+              <i className="fa-brands fa-youtube text-gray-400 hover:text-white  cursor-pointer"></i>
+              <i className="fa-brands fa-linkedin text-gray-400 hover:text-white  cursor-pointer"></i>
             </div>
           </div>
         </div>

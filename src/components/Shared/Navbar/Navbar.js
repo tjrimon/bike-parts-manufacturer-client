@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const mainMenu = (
@@ -150,26 +151,26 @@ const Navbar = () => {
               {mainMenu}
             </ul>
           </div>
-          <a href="#">
+          <Link to="/">
             <h3 className="font-bold text-2xl text-center">
               Bike Parts Manufacture{" "}
             </h3>
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex font-bold">
           <ul className="menu menu-horizontal p-0">{mainMenu}</ul>
         </div>
         <div className="navbar-end  md:flex justify-end">
-          <div class="dropdown dropdown-end dropdown-hover">
-            <level
-              tabindex="0"
+          <div className="dropdown dropdown-end dropdown-hover">
+            <label
+              tabIndex="0"
               className="text-[16px] text-white bg-primary py-3 px-4 rounded-full cursor-pointer"
             >
               <FontAwesomeIcon icon={faUser} />
-            </level>
+            </label>
             <ul
-              tabindex="0"
-              class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              tabIndex="0"
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
                 <a>Profile</a>

@@ -4,6 +4,7 @@
     "name": "Onion",
     "email": "tjrimon@gmail.com",
     "minimumOrder": 25,
+    "availableProducts": 30,
     "price": 1000,
     "supplierName": "TJ Rimon",
     "img": "https://i.ibb.co/nsTGTWd/onion.png",
