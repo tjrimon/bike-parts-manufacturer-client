@@ -49,12 +49,12 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gray-200">
+    <div className="bg-white">
       <div className="md:w-[800px] mx-auto md:h-[85vh] pb-20 md:flex justify-center items-center">
         <div className="w-[320px] py-20 mx-auto md:mr-auto">
           <SocialLogin></SocialLogin>
         </div>
-        <div className="w-[20rem] md:ml-auto mx-auto md:w-96 bg-pink-100 py-10 px-10 rounded-lg">
+        <div className="w-[20rem] md:ml-auto mx-auto md:w-96 bg-gray-200 py-10 px-10 rounded-lg">
           <form onSubmit={handleSubmit}>
             <h1 className="pb-3 font-semibold text-xl ">Login Here</h1>
             <div className="">
@@ -86,7 +86,7 @@ const Login = () => {
             </div>
             <p className="text-red-500">{errorElement}</p>
             <button
-              className="w-full rounded-lg bg-indigo-600 text-white py-3 mt-5 text-sm font-semibold"
+              className="w-full rounded-lg bg-primary text-white py-3 mt-5 text-sm font-semibold"
               type="submit"
             >
               Login
@@ -94,7 +94,7 @@ const Login = () => {
             <p className="pt-7">
               {" "}
               New Here ?{" "}
-              <span className="text-indigo-700 font-semibold">
+              <span className="font-semibold text-primary">
                 <Link to="/registration">Sign up</Link>
               </span>
             </p>

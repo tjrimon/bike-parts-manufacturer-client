@@ -1,0 +1,39 @@
+details > summary {
+  list-style-type: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::after {
+  content: "+";
+  font-size: 25px;
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  margin: 5px;
+}
+
+details[open] > summary::after {
+  content: "-";
+  color: #3c869a;
+  font-size: 25px;
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  margin: 5px;
+}
+details[open] > summary {
+  background-color: #fff;
+}
+details[open] {
+  border-top: 2px solid #3c8599;
+  background-color: #fff;
+  padding: 10px;
+  transition: ease-in-out;
+  transition-duration: 1000;
+}

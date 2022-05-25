@@ -42,14 +42,14 @@ const Registration = () => {
 
   return (
     <div>
-      <div className="bg-gray-200">
+      <div className="bg-white">
         <div className="md:w-[800px] mx-auto md:h-[85vh] pb-20 md:flex justify-center items-center">
           <div className="w-[320px] py-20 mx-auto md:mr-auto">
             <SocialLogin></SocialLogin>
           </div>
           <form
             onSubmit={handleRegister}
-            className="w-[20rem] md:ml-auto mx-auto md:w-96 bg-pink-100 py-10 px-10 rounded-lg"
+            className="w-[20rem] md:ml-auto mx-auto md:w-96 bg-gray-200 py-10 px-10 rounded-lg"
           >
             <h1 className="pb-3 font-semibold text-xl ">Registration Here</h1>
             <div className="">
@@ -94,7 +94,7 @@ const Registration = () => {
             {/* <p className='text-red-500'>{signUpError}</p>
                         <p className='text-green-500'>{signUpSuccess}</p> */}
             <button
-              className="w-full rounded-lg bg-indigo-600 text-white py-3 mt-5 text-sm font-semibold"
+              className="w-full rounded-lg bg-primary text-white py-3 mt-5 text-sm font-semibold"
               type="submit"
             >
               Sign up
@@ -102,7 +102,7 @@ const Registration = () => {
             <p className="pt-7">
               {" "}
               Already Registered ?{" "}
-              <span className="text-indigo-700 font-semibold">
+              <span className="text-primary font-semibold">
                 <Link to="/login">Login</Link>
               </span>
             </p>

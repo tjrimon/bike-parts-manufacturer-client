@@ -5,6 +5,8 @@ import Footer from "./components/Shared/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import Login from "./components/Pages/Login/Login";
 import Registration from "./components/Pages/Login/Registration";
+import Purchase from "./components/Pages/Parts/Purchase";
+import RequireAuth from "./components/Pages/Login/RequireAuth";
 
 function App() {
   return (
@@ -14,6 +16,14 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route
+          path="/purchase"
+          element={
+            <RequireAuth>
+              <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/registration"
           element={<Registration></Registration>}
