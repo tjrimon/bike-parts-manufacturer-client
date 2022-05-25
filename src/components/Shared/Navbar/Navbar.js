@@ -6,73 +6,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const mainMenu = (
     <>
-      <li tabIndex="0">
-        <a to="/" className="justify-between">
-          Home
-          <FontAwesomeIcon icon={faPlus} className="text-sm ml-[-8px]" />
-        </a>
-        <ul className="p-2 font-normal bg-white">
-          <li>
-            <a>Home 1</a>
-          </li>
-          <li>
-            <a>Home 2</a>
-          </li>
-          <li>
-            <a>Home 3</a>
-          </li>
-        </ul>
+      <li>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <a>About</a>
-      </li>
-      <li tabIndex="0">
-        <a className="justify-between">
-          Services
-          <FontAwesomeIcon icon={faPlus} className="text-sm ml-[-8px]" />
-        </a>
-        <ul className="p-2 font-normal bg-white">
-          <li>
-            <a>Service 1</a>
-          </li>
-          <li>
-            <a>Service 2</a>
-          </li>
-          <li>
-            <a>Service 3</a>
-          </li>
-        </ul>
-      </li>
-      <li tabIndex="0">
-        <a className="justify-between">
-          Pages
-          <FontAwesomeIcon icon={faPlus} className="text-sm ml-[-8px]" />
-        </a>
-        <ul className="p-2 font-normal bg-white">
-          <li>
-            <a>Page 1</a>
-          </li>
-          <li>
-            <a>Page 2</a>
-          </li>
-          <li>
-            <a>Page 3</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a>News</a>
-      </li>
-      <li>
-        <a>Shop</a>
-      </li>
-      <li>
-        <a>Contact</a>
+        <NavLink to="/login">Login</NavLink>
       </li>
     </>
   );
