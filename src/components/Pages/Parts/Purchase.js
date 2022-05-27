@@ -46,6 +46,10 @@ const Purchase = () => {
         .then(data => {
           console.log(data)
           toast(`Order Placed Successfully`)
+          event.target.address.value = ''
+          event.target.phone.value = ''
+          event.target.totalItems.value = ''
+          event.target.orderNote.value = ''
         }
         )
     } else {
