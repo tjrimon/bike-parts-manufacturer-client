@@ -7,6 +7,7 @@ import Login from "./components/Pages/Login/Login";
 import Registration from "./components/Pages/Login/Registration";
 import Purchase from "./components/Pages/Parts/Purchase";
 import RequireAuth from "./components/Pages/Login/RequireAuth";
+import NotFound from "./components/Shared/NotFound/NotFound";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route
-          path="/purchase"
+          path="/purchase/:itemsId"
           element={
             <RequireAuth>
               <Purchase></Purchase>
@@ -27,6 +28,10 @@ function App() {
         <Route
           path="/registration"
           element={<Registration></Registration>}
+        ></Route>
+        <Route
+          path="*"
+          element={<NotFound></NotFound>}
         ></Route>
       </Routes>
       <Footer></Footer>

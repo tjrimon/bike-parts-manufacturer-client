@@ -42,7 +42,7 @@ const Registration = () => {
 
   return (
     <div>
-      <div className="bg-white">
+      <div className="bg-gray-100">
         <div className="md:w-[800px] mx-auto md:h-[85vh] pb-20 md:flex justify-center items-center">
           <div className="w-[320px] py-20 mx-auto md:mr-auto">
             <SocialLogin></SocialLogin>
@@ -53,7 +53,7 @@ const Registration = () => {
           >
             <h1 className="pb-3 font-semibold text-xl ">Registration Here</h1>
             <div className="">
-              <label htmlFor="name" className="text-sm font-semibold">
+              <label htmlhtmlFor="name" className="text-sm font-semibold">
                 Name
               </label>
               <input
@@ -65,7 +65,7 @@ const Registration = () => {
               />
             </div>
             <div className="">
-              <label htmlFor="email" className=" text-sm font-semibold">
+              <label htmlhtmlFor="email" className=" text-sm font-semibold">
                 Email
               </label>
               <input
@@ -79,7 +79,7 @@ const Registration = () => {
             </div>
             <div className="">
               {" "}
-              <label htmlFor="password" className="text-sm font-semibold">
+              <label htmlhtmlFor="password" className="text-sm font-semibold">
                 Password
               </label>
               <input

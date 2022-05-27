@@ -1,55 +1,67 @@
-import React, { useRef } from "react";
-import SocialLogin from "../Login/SocialLogin";
-import {
-  useSendPasswordResetEmail,
-  useSignInWithEmailAndPassword,
-} from "react-firebase-hooks/auth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import auth from "../../../firebase.init";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+import React, { useRef } from 'react';
+import SocialLogin from './SocialLogin';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../../Shared/Loading/Loading';
+import axios from 'axios';
+
+
+
 
 const Login = () => {
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
-  const navigate = useNavigate();
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
   const location = useLocation();
+  const navigate = useNavigate();
+
 
   let from = location.state?.from?.pathname || "/";
-  let errorElement;
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  let errorMessage;
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-
+  if (loading) {
+    return <Loading></Loading>
+  }
   if (user) {
     navigate(from, { replace: true });
   }
 
   if (error) {
-    errorElement = <p className="text-danger">Error: {error?.message}</p>;
+    errorMessage = <p className='text-danger'>Error: {error?.message}</p>
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    signInWithEmailAndPassword(email, password);
-  };
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post('http://localhost:5000/login', { email })
+  }
 
   const resetPassword = async () => {
     const email = emailRef.current.value;
     if (email) {
       await sendPasswordResetEmail(email);
-      toast("Sent email");
-    } else {
-      toast("please enter your email address");
+      toast('Password Reset Email Send !');
     }
-  };
+    else {
+      toast('Please enter your email.');
+    }
+  }
 
   return (
-    <div className="bg-white">
+    <div className="bg-gray-100">
       <div className="md:w-[800px] mx-auto md:h-[85vh] pb-20 md:flex justify-center items-center">
         <div className="w-[320px] py-20 mx-auto md:mr-auto">
           <SocialLogin></SocialLogin>
@@ -58,7 +70,7 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <h1 className="pb-3 font-semibold text-xl ">Login Here</h1>
             <div className="">
-              <label htmlFor="email" className="text-sm font-semibold">
+              <label htmlhtmlFor="email" className="text-sm font-semibold">
                 Email
               </label>
               <input
@@ -72,7 +84,7 @@ const Login = () => {
             </div>
             <div className="">
               {" "}
-              <label htmlFor="password" className="text-sm font-semibold">
+              <label htmlhtmlFor="password" className="text-sm font-semibold">
                 Password
               </label>
               <input
@@ -84,7 +96,7 @@ const Login = () => {
                 placeholder="Enter your password"
               />
             </div>
-            <p className="text-red-500">{errorElement}</p>
+            <p className="text-red-500">{errorMessage}</p>
             <button
               className="w-full rounded-lg bg-primary text-white py-3 mt-5 text-sm font-semibold"
               type="submit"

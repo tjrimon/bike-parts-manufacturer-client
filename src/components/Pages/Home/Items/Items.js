@@ -2,13 +2,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { React, useEffect, useState } from "react";
 import SingleItems from "./SingleItems";
+import axios from "axios";
 
 const Items = (props) => {
   const [items, setItems] = useState([]);
+  const loadData = async () => {
+    try {
+      const data = await axios
+        .get("http://localhost:5000/items")
+        .then((data) => setItems(data.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    fetch("parts.json")
-      .then((res) => res.json())
-      .then((data) => setItems(data));
+    loadData();
   }, []);
   return (
     <div className="bg-[#F8F8F8] py-20">
@@ -23,7 +32,7 @@ const Items = (props) => {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-8">
           {items.map((item) => (
-            <SingleItems key={item.id} item={item}></SingleItems>
+            <SingleItems key={item._id} item={item}></SingleItems>
           ))}
         </div>
       </div>

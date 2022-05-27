@@ -5,21 +5,32 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
+import auth from "../../../firebase.init";
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth);
+  };
   const mainMenu = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/login">Login</NavLink>
+        {user ? (
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        ) : (
+          <>
+          </>
+        )}
       </li>
-      <li>
-        <NavLink to="/purchase">Purchase</NavLink>
-      </li>
+
     </>
   );
   return (
@@ -122,7 +133,21 @@ const Navbar = () => {
                 <a>Profile</a>
               </li>
               <li>
-                <a>Login</a>
+                {user ? (
+                  <button
+                    className="btn btn-primary text-white text-decoration-none"
+                    onClick={handleSignOut}
+                  >
+                    sign out
+                  </button>
+                ) : (
+                  <>
+                    {" "}
+                    <NavLink className="pl-1" to="/login">
+                      Login
+                    </NavLink>{" "}
+                  </>
+                )}
               </li>
             </ul>
           </div>

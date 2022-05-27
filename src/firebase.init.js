@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDeL4qCSlu6Pe_DK3H4DYfb8bwLdwFieCU",
-  authDomain: "bike-parts-manufacture.firebaseapp.com",
-  projectId: "bike-parts-manufacture",
-  storageBucket: "bike-parts-manufacture.appspot.com",
-  messagingSenderId: "408528053959",
-  appId: "1:408528053959:web:217aa2f0975e40a9c700e2",
+  apiKey: "AIzaSyBcuVOS0FzEap52C49vvPxfKVekyym5ShQ",
+  authDomain: "bike-manufacture-tjrimon.firebaseapp.com",
+  projectId: "bike-manufacture-tjrimon",
+  storageBucket: "bike-manufacture-tjrimon.appspot.com",
+  messagingSenderId: "344182807389",
+  appId: "1:344182807389:web:d44d90929f0ee21fcc26b4"
 };
 
 // Initialize Firebase
