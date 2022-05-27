@@ -3,17 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from "react-hook-form";
 import auth from "../../../firebase.init"
+import { toast } from "react-toastify";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
   const { itemsId } = useParams();
   const [items, setItems] = useState({});
-  const { img, name, price, availableProducts, minimumOrder, description } =
+  const { _id, img, name, price, availableProducts, minimumOrder, description } =
     items;
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
   useEffect(() => {
     const url = `http://localhost:5000/item/${itemsId}`;
     console.log(url);
@@ -21,6 +19,40 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
+  const handleOrder = (event) => {
+    event.preventDefault();
+    const totalOrderItems = event.target.totalItems.value
+    const totalOrderItemsInt = parseInt(totalOrderItems)
+
+    if (minimumOrder < event.target.totalItems.value && availableProducts > event.target.totalItems.value) {
+      const booking = {
+        itemId: _id,
+        item: name,
+        user: user.email,
+        userName: user.displayName,
+        address: event.target.address.value,
+        phone: event.target.phone.value,
+        totalItems: totalOrderItemsInt,
+        orderNote: event.target.orderNote.value
+      }
+      fetch('http://localhost:5000/order/add', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(booking)
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          toast(`Order Placed Successfully`)
+        }
+        )
+    } else {
+      toast.error(`Please select total items between ${minimumOrder} to ${availableProducts
+        }`)
+    }
+  }
 
   return (
     <div className="bg-gray-100">
@@ -30,7 +62,7 @@ const Purchase = () => {
             <h3>Name : {user?.displayName}</h3>
             <h3>Email : {user?.email}</h3>
           </div>
-          <form className="w-full max-w-sm" onSubmit={handleSubmit(onSubmit)}>
+          <form className="w-full max-w-sm" onSubmit={handleOrder}>
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">
                 <label
@@ -42,10 +74,12 @@ const Purchase = () => {
               </div>
               <div className="md:w-2/3">
                 <input
+                  name="address"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="address"
                   type="text"
                   placeholder="Enter your address"
+                  required
                 />
               </div>
             </div>
@@ -60,10 +94,12 @@ const Purchase = () => {
               </div>
               <div className="md:w-2/3">
                 <input
+                  name="phone"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="phone"
                   type="text"
                   placeholder="Enter phone number"
+                  required
                 />
               </div>
             </div>
@@ -78,13 +114,14 @@ const Purchase = () => {
               </div>
               <div className="md:w-2/3">
                 <input
+                  name="totalItems"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="total-items"
                   type="text"
-                  placeholder="Enter total item"  {...register("totalItems", { required: true, max: 20, min: 10 })}
+                  placeholder="Enter total item" required
                 />
+
               </div>
-              {errors.totalItems && `Please select item between ${minimumOrder} to ${availableProducts}`}
             </div>
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">
@@ -97,6 +134,7 @@ const Purchase = () => {
               </div>
               <div className="md:w-2/3">
                 <input
+                  name="orderNote"
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   id="note"
                   type="text"
@@ -110,7 +148,7 @@ const Purchase = () => {
               <div className="md:w-2/3">
                 <button
                   className="shadow btn-primary focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                  type="button"
+                  type="submit"
                 >
                   Order Now
                 </button>

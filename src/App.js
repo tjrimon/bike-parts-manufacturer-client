@@ -8,6 +8,8 @@ import Registration from "./components/Pages/Login/Registration";
 import Purchase from "./components/Pages/Parts/Purchase";
 import RequireAuth from "./components/Pages/Login/RequireAuth";
 import NotFound from "./components/Shared/NotFound/NotFound";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
         ></Route>
       </Routes>
       <Footer></Footer>
+
+      <ToastContainer />
     </div>
   );
 }
