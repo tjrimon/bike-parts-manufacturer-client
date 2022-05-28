@@ -7,12 +7,15 @@ import {
 import SocialLogin from "./SocialLogin";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import useToken from "../../../hooks/useToken";
 
 const Registration = () => {
   const [agree, setAgree] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const [token] = useToken(user)
 
   const navigate = useNavigate();
 
@@ -23,8 +26,8 @@ const Registration = () => {
     return <Loading></Loading>;
   }
 
-  if (user) {
-    console.log("user", user);
+  if (token) {
+    navigate("/home");
   }
 
   const handleRegister = async (event) => {
@@ -32,12 +35,10 @@ const Registration = () => {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    // const agree = event.target.terms.checked;
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
     console.log("Updated profile");
-    navigate("/home");
   };
 
   return (
@@ -53,7 +54,7 @@ const Registration = () => {
           >
             <h1 className="pb-3 font-semibold text-xl ">Registration Here</h1>
             <div className="">
-              <label htmlhtmlFor="name" className="text-sm font-semibold">
+              <label htmlhtmlhtmlFor="name" className="text-sm font-semibold">
                 Name
               </label>
               <input
@@ -65,7 +66,7 @@ const Registration = () => {
               />
             </div>
             <div className="">
-              <label htmlhtmlFor="email" className=" text-sm font-semibold">
+              <label htmlhtmlhtmlFor="email" className=" text-sm font-semibold">
                 Email
               </label>
               <input
@@ -79,7 +80,7 @@ const Registration = () => {
             </div>
             <div className="">
               {" "}
-              <label htmlhtmlFor="password" className="text-sm font-semibold">
+              <label htmlhtmlhtmlFor="password" className="text-sm font-semibold">
                 Password
               </label>
               <input

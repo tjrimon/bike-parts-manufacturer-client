@@ -24,7 +24,7 @@ const Purchase = () => {
     const totalOrderItems = event.target.totalItems.value
     const totalOrderItemsInt = parseInt(totalOrderItems)
 
-    if (minimumOrder < event.target.totalItems.value && availableProducts > event.target.totalItems.value) {
+    if (minimumOrder <= event.target.totalItems.value && availableProducts >= event.target.totalItems.value) {
       const booking = {
         itemId: _id,
         item: name,
@@ -71,7 +71,7 @@ const Purchase = () => {
               <div className="md:w-1/3">
                 <label
                   className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                  htmlFor="address"
+                  htmlhtmlFor="address"
                 >
                   Address
                 </label>
@@ -91,7 +91,7 @@ const Purchase = () => {
               <div className="md:w-1/3">
                 <label
                   className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                  htmlFor="phone"
+                  htmlhtmlFor="phone"
                 >
                   Phone
                 </label>
@@ -111,7 +111,7 @@ const Purchase = () => {
               <div className="md:w-1/3">
                 <label
                   className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                  htmlFor="total-items"
+                  htmlhtmlFor="total-items"
                 >
                   Total Items
                 </label>
@@ -131,7 +131,7 @@ const Purchase = () => {
               <div className="md:w-1/3">
                 <label
                   className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                  htmlFor="note"
+                  htmlhtmlFor="note"
                 >
                   Order Note
                 </label>

@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../../Shared/Loading/Loading';
 import axios from 'axios';
+import useToken from '../../../hooks/useToken';
 
 
 
@@ -17,22 +18,23 @@ const Login = () => {
   const passwordRef = useRef('');
   const location = useLocation();
   const navigate = useNavigate();
-
-
-  let from = location.state?.from?.pathname || "/";
-  let errorMessage;
   const [
     signInWithEmailAndPassword,
     user,
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+  const [token] = useToken(user)
+
+  let from = location.state?.from?.pathname || "/";
+  let errorMessage;
+
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   if (loading) {
     return <Loading></Loading>
   }
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
 
@@ -70,7 +72,7 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <h1 className="pb-3 font-semibold text-xl ">Login Here</h1>
             <div className="">
-              <label htmlhtmlFor="email" className="text-sm font-semibold">
+              <label htmlhtmlhtmlFor="email" className="text-sm font-semibold">
                 Email
               </label>
               <input
@@ -84,7 +86,7 @@ const Login = () => {
             </div>
             <div className="">
               {" "}
-              <label htmlhtmlFor="password" className="text-sm font-semibold">
+              <label htmlhtmlhtmlFor="password" className="text-sm font-semibold">
                 Password
               </label>
               <input

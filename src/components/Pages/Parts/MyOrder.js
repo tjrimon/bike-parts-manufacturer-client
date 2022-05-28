@@ -12,13 +12,12 @@ const MyOrder = () => {
             .then(res => res.json())
             .then(data => {
                 setOrder(data)
-                console.log(order)
             })
     }, [])
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra w-full">
 
                     <thead>
                         <tr>
@@ -30,18 +29,19 @@ const MyOrder = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {order.map(orders => <tr>
-                            <td>{orders.item}</td>
-                            <td>{orders.totalItems}</td>
-                            <td>Pending</td>
-                            <td>Unpaid</td>
-                            <td>
-                                <div className='flex items-center'>
-                                    <button title='cancel' className='text-white px-2 py-1  bg-red-600 text-xl cursor-pointer'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
-                                </div>
-                            </td>
-
-                        </tr>)}
+                        {order.map(orders => <> {
+                            user.email === orders.user ? <tr>
+                                <td>{orders.item}</td>
+                                <td>{orders.totalItems}</td>
+                                <td>Pending</td>
+                                <td>Unpaid</td>
+                                <td>
+                                    <div className='flex items-center'>
+                                        <button title='cancel' className='text-white px-2 py-1  bg-red-600 text-xl cursor-pointer'><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+                                    </div>
+                                </td>
+                            </tr> : ''
+                        }</>)}
                     </tbody>
                 </table>
             </div>

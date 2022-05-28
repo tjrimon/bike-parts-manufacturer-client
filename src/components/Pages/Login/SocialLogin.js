@@ -3,10 +3,11 @@ import auth from "../../../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loading from "../../Shared/Loading/Loading";
+import useToken from "../../../hooks/useToken";
 const SocialLogin = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
-
+  const [token] = useToken(googleUser)
   const navigate = useNavigate();
   const location = useLocation();
   let errorElement;
