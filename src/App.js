@@ -14,6 +14,7 @@ import Dashboard from "./components/Pages/Dashboard/Dashboard";
 import MyOrder from "./components/Pages/Parts/MyOrder";
 import MyReview from "./components/Pages/MyReview/MyReview";
 import AllUser from "./components/Pages/AllUsers/AllUser"
+import Blog from "./components/Pages/Blog/Blog";
 
 
 function App() {
@@ -47,6 +48,10 @@ function App() {
         <Route
           path="registration"
           element={<Registration></Registration>}
+        ></Route>
+        <Route
+          path="blog"
+          element={<Blog></Blog>}
         ></Route>
         <Route
           path="*"

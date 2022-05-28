@@ -1,7 +1,4 @@
 import {
-  faPlus,
-  faSearch,
-  faCartShopping,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +18,9 @@ const Navbar = () => {
     <>
       <li>
         <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/blog">Blog</NavLink>
       </li>
       <li>
         {user ? (
